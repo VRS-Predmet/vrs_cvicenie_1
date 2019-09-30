@@ -35,7 +35,7 @@ K registrom mikrokontrolera je možné pristupovať priamo pomocou adresy samotn
 *((volatile uint32_t *)((uint32_t)0x48000400)) = 0;
 ```
 Hore uvedené je príklad ako pristúpiť (čítanie/zápis) k registru mikrokontrolera cez jeho adresu.
-"0x48000400" je adresa v rámci adresovaného pameťového priestoru mikrokontrolera. Adresa je 32 bitové číslo. Pre možnosť prístupu k hodnote nachádzajúcej sa na tejto adrese, je potrebné definovať adresu registra ako smerník na premennú typu uint32_t (32 bitový bezznamienkový integer).
+"0x48000400" je adresa v rámci adresovaného pamäťového priestoru mikrokontrolera. Adresa je 32 bitové číslo. Pre možnosť prístupu k hodnote nachádzajúcej sa na tejto adrese, je potrebné definovať adresu registra ako smerník na premennú typu uint32_t (32 bitový bezznamienkový integer).
 
 ##### Maskovanie
 V rámci registra majú jednotlivé bity alebo skupiny bitov svoju špeciálnu funkciu ako napr. nastavenie režimu GPIO pinu. To znamená, že ak chcem nastaviť konkrétne piny na hodnotu "0" alebo "1", nemôžem zvoliť spôsob zápisu do registra ako je to znázornené v hore uvedenom príklade, pretože všetky bity budú nastavené na hodnotu "0" (celý register je resetovaný).
