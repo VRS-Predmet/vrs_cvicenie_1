@@ -4,27 +4,27 @@
 - zoznámenie sa s perifériou GPIO – ako funguje, vlastnosti
 - konfigurácia GPIO portu a jednotlivých pinov
 
-### GPIO port
+# GPIO port
 <p align="center">
     <img src="https://bluetechs.files.wordpress.com/2013/12/115.png" width="600" title="GPIO pin block scheme">
 </p>
 
-##### Nastavenie vstupného pinu
+### Nastavenie vstupného pinu
 - typ vstupu: digitálny, analógový
 - alternatívna funkcia
 - pripojenie pull up, pull down rezistora
 
-##### Nastavenie vstupného pinu
+### Nastavenie vstupného pinu
 - typ výstupu: push-pull, open-drain
 - rýchlosť výstupu
 - pripojenie pull up, pull down rezistora
 
-##### Registre GPIO
+### Registre GPIO
 - Konfigurácia pinu: MODER, OTYPER, OSPEEDR, PUPDR, AFRL/H
 - Čítanie vstupného pinu: IDR
 - Čítanie/zápis na výstupný pin: ODR, BSRR, BRR
 
-### Prístup k registrom
+# Prístup k registrom
 
 K registrom mikrokontrolera je možné pristupovať priamo pomocou adresy samotného registra.
 ```sh
@@ -33,7 +33,7 @@ K registrom mikrokontrolera je možné pristupovať priamo pomocou adresy samotn
 Hore uvedené je príklad ako pristúpiť (čítanie/zápis) k registru mikrokontrolera cez jeho adresu.
 "0x48000400" je adresa v rámci adresovaného pamäťového priestoru mikrokontrolera. Adresa je 32 bitové číslo. Pre možnosť prístupu k hodnote nachádzajúcej sa na tejto adrese, je potrebné definovať adresu registra ako smerník na premennú typu uint32_t (32 bitový bezznamienkový integer).
 
-##### Maskovanie
+### Maskovanie
 V rámci registra majú jednotlivé bity alebo skupiny bitov svoju špeciálnu funkciu ako napr. nastavenie režimu GPIO pinu. To znamená, že ak chcem nastaviť konkrétne piny na hodnotu "0" alebo "1", nemôžem zvoliť spôsob zápisu do registra ako je to znázornené v hore uvedenom príklade, pretože všetky bity budú nastavené na hodnotu "0" (celý register je resetovaný).
 
 Pre nastavenie konkrétnych bitov v registry sa využije "maska". Kedže sa ide nastavovať 32 bitový register, maska bude taktiež 32 bitové číslo.
