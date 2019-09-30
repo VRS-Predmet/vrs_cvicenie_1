@@ -1,12 +1,8 @@
-### Náplň cvičenia
+# Náplň cvičenia
 - zoznámenie sa s registrami mikrokontrolera stm32-F3xx
 - priami prístup k registrom mikrokontrolera
 - zoznámenie sa s perifériou GPIO – ako funguje, vlastnosti
 - konfigurácia GPIO portu a jednotlivých pinov
-
-### Zadanie
-- modifikovať ukážkový program tak, aby sa ako vstup, na ktorom je pripojené tlačidlo, používal iný port a pin
-- vytvoriť funkciu, detektor hrany, ktorá bude mat 2 vstupy (stav vstupného pinu, počet vzoriek) a výstup bude nadobúdať 3 hodnoty – "0" pre detekciu nábežnej hrany, "1" pre detekciu dobežnej hrany, "2" pre kľudový stav
 
 ### GPIO port
 <p align="center">
@@ -52,3 +48,7 @@ Pre nastavenie konkrétnych bitov v registry sa využije "maska". Kedže sa ide 
 <pre>  0b11100101    <- register		
 & 0b10011111    <- maska   
 = 0b10000101    <- nové nastavenie registra </pre>
+
+# Zadanie
+- modifikovať ukážkový program tak, aby sa ako vstup, na ktorom je pripojené tlačidlo, používal iný port a pin
+- vytvoriť funkciu, detektor hrany, ktorá bude mat 2 vstupy (stav vstupného pinu, počet vzoriek) a výstup bude nadobúdať 3 hodnoty – "0" pre detekciu nábežnej hrany, "1" pre detekciu dobežnej hrany, "2" pre kľudový stav
