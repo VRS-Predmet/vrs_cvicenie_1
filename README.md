@@ -6,7 +6,7 @@
 
 ### Zadanie
 - modifikovať ukážkový program tak, aby sa ako vstup, na ktorom je pripojené tlačidlo, používal iný port a pin
-- vytvoriť funkciu, detektor hrany, ktorá bude mat 2 vstupy (stav vstupného pinu, počet vzoriek) a výstup bude nadobúdať 3 hodnoty – „0“ pre detekciu nábežnej hrany, „1“ pre detekciu dobežnej hrany, „2“ pre kľudový stav
+- vytvoriť funkciu, detektor hrany, ktorá bude mat 2 vstupy (stav vstupného pinu, počet vzoriek) a výstup bude nadobúdať 3 hodnoty – "0" pre detekciu nábežnej hrany, "1" pre detekciu dobežnej hrany, "2" pre kľudový stav
 
 ### GPIO port
 <p align="center">
