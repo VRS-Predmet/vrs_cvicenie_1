@@ -38,9 +38,9 @@ Hore uvedené je príklad ako pristúpiť (čítanie/zápis) k registru mikrokon
 "0x48000400" je adresa v rámci adresovaného pameťového priestoru mikrokontrolera. Adresa je 32 bitové číslo. Pre možnosť prístupu k hodnote nachádzajúcej sa na tejto adrese, je potrebné definovať adresu registra ako smerník na premennú typu uint32_t (32 bitový bezznamienkový integer).
 
 ##### Maskovanie
-V rámci registra majú jednotlivé bity alebo skupiny bitov svoju špeciálnu funkciu ako napr. nastavenie režimu GPIO pinu. To znamená, že ak chcem nastaviť konkrétne piny na hodnotu "0" alebo "1", nemôžem zvoliť spôsob zápisu do registra ako je to znázornené v hore uvedenom príklade pretože všetky bity budú nastavené na hodnotu "0" (celý register je resetovaný).
+V rámci registra majú jednotlivé bity alebo skupiny bitov svoju špeciálnu funkciu ako napr. nastavenie režimu GPIO pinu. To znamená, že ak chcem nastaviť konkrétne piny na hodnotu "0" alebo "1", nemôžem zvoliť spôsob zápisu do registra ako je to znázornené v hore uvedenom príklade, pretože všetky bity budú nastavené na hodnotu "0" (celý register je resetovaný).
 
-Pre nastavenie konkretnych bitov v registry sa využije "maska". Kedže sa ide nastavovať 32 bitový register, maska bude taktiež 32 bitové číslo.
+Pre nastavenie konkrétnych bitov v registry sa využije "maska". Kedže sa ide nastavovať 32 bitový register, maska bude taktiež 32 bitové číslo.
 - Nastavenie bitov na "1": maska sa vytvorí tak, že bity, ktoré chceme nastaviť v rámci registra budú mať hodnotu "1" a ostatné budú mať hodnotu "0". Následne sa vykoná operácia logický OR a výsledok operácie sa zapíše do registra. Takýmto spôsobom boli nastavené len tie bity, ktoré sme potrebovali nastaviť bez toho, aby sa zmenilo nastavenie ostatných bitov registra.
 
 <pre>  0b10000000    <- register		
