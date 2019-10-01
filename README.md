@@ -53,7 +53,7 @@ Pre nastavenie konkrétnych bitov v registry sa využije "maska". Kedže sa ide 
 
 <pre>  0b10101101    <- register		
 & 0b00011000    <- maska   
-= 0b00001000    <- nové nastavenie registra </pre>
+= 0b00001000    <- prečítaná hodnota z registra </pre>
 
 # Zadanie
 - modifikovať ukážkový program tak, aby sa ako vstup, na ktorom je pripojené tlačidlo, používal iný port a pin -> GPIOA, pin 3
