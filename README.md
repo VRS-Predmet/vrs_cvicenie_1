@@ -49,6 +49,12 @@ Pre nastavenie konkrétnych bitov v registry sa využije "maska". Kedže sa ide 
 & 0b10011111    <- maska   
 = 0b10000101    <- nové nastavenie registra </pre>
 
+- Čítanie hodnoty z registra: ak chceme získať konkrétnu hodnotu bitu alebo skupiny bitov registra, taktiež použijeme masku. Maska bude mať nastavené bity na "1" na pozícii, z ktorej chcem čítať hodnotu z registra. Následne sa vykoná operácia "&" a jej výsledok sa porovná s maskou, aby sa zistilo, či sú dané bity registra nastavené na "1".
+
+<pre>  0b10101101    <- register		
+& 0b00011000    <- maska   
+= 0b00001000    <- nové nastavenie registra </pre>
+
 # Zadanie
-- modifikovať ukážkový program tak, aby sa ako vstup, na ktorom je pripojené tlačidlo, používal iný port a pin
+- modifikovať ukážkový program tak, aby sa ako vstup, na ktorom je pripojené tlačidlo, používal iný port a pin -> GPIOA, pin 3
 - vytvoriť funkciu, detektor hrany, ktorá bude mat 2 vstupy (stav vstupného pinu, počet vzoriek) a výstup bude nadobúdať 3 hodnoty – "0" pre detekciu nábežnej hrany, "1" pre detekciu dobežnej hrany, "2" pre kľudový stav
