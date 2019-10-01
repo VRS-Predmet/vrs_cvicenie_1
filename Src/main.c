@@ -32,7 +32,7 @@ int main(void)
   *((volatile uint32_t *)((uint32_t)0x48000400)) = 0;
   //Set mode for pin 3 and 6
   *((volatile uint32_t *)((uint32_t)0x48000400)) |= (uint32_t)(0x1 << 6);
-  *((volatile uint32_t *)((uint32_t)0x48000400)) |= (uint32_t)(0x0 << 0);
+  *((volatile uint32_t *)((uint32_t)0x48000400)) &= ~(uint32_t)(0b11 << 12);
 
   /*GPIO OTYPER register, reset*/
   *((volatile uint32_t *)((uint32_t)(0x48000400 + 0x04U))) = 0;
