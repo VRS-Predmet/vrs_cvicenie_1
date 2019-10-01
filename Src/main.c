@@ -44,11 +44,12 @@ int main(void)
 
   /*GPIO PUPDR register, reset*/
   *((volatile uint32_t *)((uint32_t)(0x48000400 + 0x0CU))) = 0;
+  *((volatile uint32_t *)((uint32_t)(0x48000400 + 0x0CU))) = (1 << 12);
 
   while (1)
   {
 	  //GPIO IDR, read input from pin 6
-	  if(*((volatile uint32_t *)((uint32_t)(0x48000400 + 0x10U))) & (1 << 6))
+	  if(!(*((volatile uint32_t *)((uint32_t)(0x48000400 + 0x10U))) & (1 << 6)))
 	  {
 		  //GPIO BSRR register, set output pin 3
 		  LED_ON;
