@@ -14,7 +14,7 @@
 - alternatívna funkcia
 - pripojenie pull up, pull down rezistora
 
-### Nastavenie vstupného pinu
+### Nastavenie výstupného pinu
 - typ výstupu: push-pull, open-drain
 - rýchlosť výstupu
 - pripojenie pull up, pull down rezistora
