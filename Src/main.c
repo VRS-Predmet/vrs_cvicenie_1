@@ -24,31 +24,40 @@
 
 int main(void)
 {
+  /*
+   * DO NOT WRITE TO THE WHOLE REGISTER!!!
+   *
+   * Write to bits, that are meant for change.
+   */
+
   /*Enables clock for GPIO port B*/
   *((volatile uint32_t *) (uint32_t)(0x40021000 + 0x00000014U)) |= (uint32_t)(1 << 18);
 
   /*GPIOB pin 3 and 6 setup*/
-  /*GPIO MODER register, reset*/
-  *((volatile uint32_t *)((uint32_t)0x48000400)) = 0;
-  //Set mode for pin 3 and 6
-  *((volatile uint32_t *)((uint32_t)0x48000400)) |= (uint32_t)(0x1 << 6);
-  *((volatile uint32_t *)((uint32_t)0x48000400)) |= (uint32_t)(0x0 << 0);
+  /*GPIO MODER register*/
+  //Set mode for pin 3
+  *((volatile uint32_t *)((uint32_t)0x48000400)) &= ~(uint32_t)(0x3 << 6);
+  *((volatile uint32_t *)((uint32_t)0x48000400)) |= (uint32_t)(1 << 6);
+  //Set mode for pin 6
+  *((volatile uint32_t *)((uint32_t)0x48000400)) &= ~(uint32_t)(0x3 << 12);
 
-  /*GPIO OTYPER register, reset*/
-  *((volatile uint32_t *)((uint32_t)(0x48000400 + 0x04U))) = 0;
+  /*GPIO OTYPER register*/
+  *((volatile uint32_t *)((uint32_t)(0x48000400 + 0x04U))) &= ~(1 << 3);
 
-  /*GPIO OSPEEDR register, reset*/
-  *((volatile uint32_t *)((uint32_t)(0x48000400 + 0x08U))) = 0;
+  /*GPIO OSPEEDR register*/
   //Set Low speed for GPIOB pin 3
   *((volatile uint32_t *)((uint32_t)(0x48000400 + 0x08U))) &= ~(0x3 << 6);
 
   /*GPIO PUPDR register, reset*/
-  *((volatile uint32_t *)((uint32_t)(0x48000400 + 0x0CU))) = 0;
+  //Set pull up for GPIOB pin 6 (input)
+  *((volatile uint32_t *)((uint32_t)(0x48000400 + 0x0CU))) |= (1 << 12);
+  //Set no pull for GPIOB pin 3
+  *((volatile uint32_t *)((uint32_t)(0x48000400 + 0x0CU))) &= ~(0x3 << 6);
 
   while (1)
   {
-	  //GPIO IDR, read input from pin 6
-	  if(*((volatile uint32_t *)((uint32_t)(0x48000400 + 0x10U))) & (1 << 6))
+	  //GPIOB IDR, read input from pin 6
+	  if(!(*((volatile uint32_t *)((uint32_t)(0x48000400 + 0x10U))) & (1 << 6)))
 	  {
 		  //GPIO BSRR register, set output pin 3
 		  LED_ON;
@@ -64,7 +73,7 @@ int main(void)
 		  //GPIO BSRR register, set output pin 3
 		  LED_ON;
 		  //delay
-		  for(uint32_t i = 0; i < 0xFFFFF; i++){}
+		  for(uint32_t i = 0; i < 0xFFFF0; i++){}
 		  //GPIO BRR, reset output pin 3
 		  LED_OFF;
 		  //delay
