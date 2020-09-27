@@ -20,64 +20,56 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-
+#include "assignment.h"
 
 int main(void)
 {
   /*
-   * DO NOT WRITE TO THE WHOLE REGISTER!!!
-   *
-   * Write to bits, that are meant for change.
+   *  DO NOT WRITE TO THE WHOLE REGISTER!!!
+   *  Write to the bits, that are meant for change.
    */
 
-  /*Enables clock for GPIO port B*/
-  *((volatile uint32_t *) (uint32_t)(0x40021000 + 0x00000014U)) |= (uint32_t)(1 << 18);
 
-  /*GPIOB pin 3 and 6 setup*/
-  /*GPIO MODER register*/
-  //Set mode for pin 3
-  *((volatile uint32_t *)((uint32_t)0x48000400)) &= ~(uint32_t)(0x3 << 6);
-  *((volatile uint32_t *)((uint32_t)0x48000400)) |= (uint32_t)(1 << 6);
-  //Set mode for pin 6
-  *((volatile uint32_t *)((uint32_t)0x48000400)) &= ~(uint32_t)(0x3 << 12);
+  /*
+   * TASK - configure MCU peripherals so that button state can be read and LED will blink.
+   * Button must be connected to the GPIO port A and its pin 3.
+   * LED must be connected to the GPIO port A and its pin 4.
+   *
+   * In header file "assignment.h" define macros for MCU registers access and LED blink application.
+   * Code in this file must use these macros for the peripherals setup.
+   * Code of the LED blink application is already given so just the macros used in the application must be defined.
+   */
 
-  /*GPIO OTYPER register*/
-  *((volatile uint32_t *)((uint32_t)(0x48000400 + 0x04U))) &= ~(1 << 3);
 
-  /*GPIO OSPEEDR register*/
-  //Set Low speed for GPIOB pin 3
-  *((volatile uint32_t *)((uint32_t)(0x48000400 + 0x08U))) &= ~(0x3 << 6);
+  /* Enable clock for GPIO port A*/
 
-  /*GPIO PUPDR register, reset*/
-  //Set pull up for GPIOB pin 6 (input)
-  *((volatile uint32_t *)((uint32_t)(0x48000400 + 0x0CU))) |= (1 << 12);
-  //Set no pull for GPIOB pin 3
-  *((volatile uint32_t *)((uint32_t)(0x48000400 + 0x0CU))) &= ~(0x3 << 6);
+	//type your code for GPIOA clock enable here:
+
+
+  /* GPIOA pin 3 and 4 setup */
+
+	//type your code for GPIOA pins setup here:
+
 
   while (1)
   {
-	  //GPIO IDR, read input from pin 6
-	  if(!(*((volatile uint32_t *)((uint32_t)(0x48000400 + 0x10U))) & (1 << 6)))
+	  if(BUTTON_GET_STATE)
 	  {
-		  //GPIO BSRR register, set output pin 3
+		  // 0.25s delay
+		  LL_mDelay(250);
 		  LED_ON;
-		  //delay
-		  for(uint16_t i = 0; i < 0xFF00; i++){}
-		  //GPIO BRR, reset output pin 3
+		  // 0.25s delay
+		  LL_mDelay(250);
 		  LED_OFF;
-		  //delay
-		  for(uint16_t i = 0; i < 0xFF00; i++){}
 	  }
 	  else
 	  {
-		  //GPIO BSRR register, set output pin 3
+		  // 1s delay
+		  LL_mDelay(1000);
 		  LED_ON;
-		  //delay
-		  for(uint32_t i = 0; i < 0xFFFF0; i++){}
-		  //GPIO BRR, reset output pin 3
+		  // 1s delay
+		  LL_mDelay(1000);
 		  LED_OFF;
-		  //delay
-		  for(uint32_t i = 0; i < 0xFFF00; i++){}
 	  }
   }
 

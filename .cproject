@@ -187,4 +187,5 @@
 			<resource resourceType="PROJECT" workspacePath="/vrs_cv2_ll_programming"/>
 		</configuration>
 	</storageModule>
+	<storageModule moduleId="org.eclipse.cdt.make.core.buildtargets"/>
 </cproject>
