@@ -56,5 +56,12 @@ Pre nastavenie konkrétnych bitov v registry sa využije "maska". Kedže sa ide 
 = 0b00001000    <- prečítaná hodnota z registra </pre>
 
 # Zadanie
-- modifikovať ukážkový program tak, aby sa ako vstup, na ktorom je pripojené tlačidlo, používal iný port a pin -> GPIOA, pin 3
-- vytvoriť funkciu, detektor hrany, ktorá bude mat 2 vstupy (stav vstupného pinu, počet vzoriek) a výstup bude nadobúdať 3 hodnoty – "0" pre detekciu nábežnej hrany, "1" pre detekciu dobežnej hrany, "2" pre kľudový stav
+- Upravte ukážkový program tak, aby bol vstup (tlačidlo) načítavaný cez pin GPIOA-3 a výstup (LED) vyvedený na pin GPIOA-4.
+- Ukážkový program sa nachádza vo vetve (branch) "master". Šablóna, podľa ktorej sa vypracuje zadanie, sa nachádza vo vetve "zadanie_cv2".
+### Úlohy:
+ 1. Stiahnúť/naklonovať vetvu "zadanie_cv2", ktorá predstavuje šablónu projektu, do ktorej je nutné vypracovať nasledujúce úlohy.
+ 2. Pre svoje zadanie si vtvoriť vlastný github repozitár, kam sa nahraje stiahnutá šablóná.
+ 3. Pracovať s vlastným repozitárom tak, aby boli vydieť "commits" (editačné zmeny). Ideálne od celej dvojice.
+ 4. V súbore "Inc/assignment.h" doplniť definíciu makier, ktoré sa budú použivať pri nastavovaní GPIO periférii a v samotnej aplikácii.
+ 5. V subore "Src/main.c" implementovať konfiguráciu GPIO periférii s využitím makier z "assignment.h"
+ 6. Odovzdáva sa odkaz k vašemu repozitáru.
