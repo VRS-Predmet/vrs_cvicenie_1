@@ -67,5 +67,5 @@ Pre nastavenie konkrétnych bitov v registry sa využije "maska". Kedže sa ide 
  6. Odovzdáva sa odkaz k vašemu repozitáru.
  
  <p align="center">
-    <img src="https://github.com/VRS-Predmet/vrs_cvicenie_2/blob/master/documents/circuit.png" width="1000" title="GPIO pin block scheme">
+    <img src="https://github.com/VRS-Predmet/vrs_cvicenie_2/blob/master/documents/circuit.png" width="1000" title="LED, button and Stm32 - circuit.">
 </p>
