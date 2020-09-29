@@ -65,3 +65,7 @@ Pre nastavenie konkrétnych bitov v registry sa využije "maska". Kedže sa ide 
  4. V súbore "Inc/assignment.h" doplniť definície makier, ktoré sa budú použivať pri nastavovaní GPIO periférii a v samotnej aplikácii.
  5. V subore "Src/main.c" implementovať konfiguráciu GPIO periférii s využitím makier z "assignment.h"
  6. Odovzdáva sa odkaz k vašemu repozitáru.
+ 
+ <p align="center">
+    <img src="https://github.com/VRS-Predmet/vrs_cvicenie_2/blob/master/documents/circuit.png" width="1000" title="GPIO pin block scheme">
+</p>
