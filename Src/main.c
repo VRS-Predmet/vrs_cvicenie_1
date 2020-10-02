@@ -28,7 +28,11 @@ int main(void)
    *  DO NOT WRITE TO THE WHOLE REGISTER!!!
    *  Write to the bits, that are meant for change.
    */
-
+   
+  //Systick init
+  LL_Init1msTick(8000000);
+  LL_SYSTICK_SetClkSource(LL_SYSTICK_CLKSOURCE_HCLK);
+  LL_SetSystemCoreClock(8000000);	
 
   /*
    * TASK - configure MCU peripherals so that button state can be read and LED will blink.
