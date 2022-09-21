@@ -1,8 +1,41 @@
+# Vnorené riadiace systémy 2022/23
+
+### Harmonogram cvićení
+1. Úvod do VRS
+2. Grafické rozhranie CubeMX a LL-knižnica
+3. Prerušenia
+4. Komunikácia USART
+5. Úvod do git
+6. I2C senzor
+7. Časovače
+8. ADC prevodník
+9. až 12. Semestrálne zadanie
+
+### Bodovanie
+- (10b) Úlohy na cvičeniach 1-5
+- (10b) Zadanie na cvičeniach 6-8
+- (35b) Semestrálne zadanie 9-12
+- (45b) Skúška
+
+Zadania odovzdajte **bez binariek** vo formáte zip/rar/tar do AIS do miesta odovzdania a potom zadania budú prezentované cvičiacemu na konci daných cvičení.
+
 # Náplň cvičenia
+- overenie nainštalovaného STM32CubeIDE
 - zoznámenie sa s registrami mikrokontrolera stm32-F3xx
 - priami prístup k registrom mikrokontrolera
 - zoznámenie sa s perifériou GPIO – ako funguje, vlastnosti
 - konfigurácia GPIO portu a jednotlivých pinov
+
+# Ukážkový príklad
+1. Stiahnúť a nainštalovať [STM32CubeIDE](https://www.st.com/en/development-tools/stm32cubeide.html)
+2. Stiahnúť a nainštalovať [git](https://git-scm.com/downloads)
+3. Naklonovať repozitár `vrs_cvicenie_1` vetva `master`
+4. Pripraviť zariadenie podľa schémy nižšie
+5. V `CubeIDE -> File -> Import -> General -> Existing Projects into Workspace` nájsť naklonovaný projekt a importovať do workspace
+6. Pripojiť microkontrolér pomocou USB do počítača
+7. Naflashovať projekt do zariadenia pomocou `Run -> Debug` (F11) a spustiť `Run -> Resume (F8)`
+
+![circuit2](https://user-images.githubusercontent.com/113924824/191065787-aff20285-eef7-432f-b2cb-217aa3dedd86.png)
 
 # GPIO port
 <p align="center">
@@ -55,16 +88,15 @@ Pre nastavenie konkrétnych bitov v registry sa využije "maska". Kedže sa ide 
 & 0b00011000    <- maska   
 = 0b00001000    <- prečítaná hodnota z registra </pre>
 
-# Zadanie
+# Zadanie 1 
 - Upravte ukážkový program tak, aby bol vstup (tlačidlo) načítavaný cez pin GPIOA-3 a výstup (LED) vyvedený na pin GPIOA-4.
-- Ukážkový program sa nachádza vo vetve (branch) "master". Šablóna, podľa ktorej sa vypracuje zadanie, sa nachádza vo vetve "zadanie_cv2".
+- Ukážkový program sa nachádza vo vetve (branch) "master". Šablóna, podľa ktorej sa vypracuje zadanie, sa nachádza vo vetve "zadanie_cv1".
+- Toto zadanie je pre-rekvizita k zadaniu 2.
 ### Úlohy:
- 1. Stiahnúť/naklonovať vetvu "zadanie_cv2", ktorá predstavuje šablónu projektu, do ktorej je nutné vypracovať nasledujúce úlohy.
- 2. Pre svoje zadanie si vtvoriť vlastný github repozitár, kam sa nahraje stiahnutá šablóná.
- 3. Pracovať s vlastným repozitárom tak, aby boli vydieť "commits" (editačné zmeny). Ideálne od celej dvojice.
- 4. V súbore "Inc/assignment.h" doplniť definície makier, ktoré sa budú použivať pri nastavovaní GPIO periférii a v samotnej aplikácii.
- 5. V subore "Src/main.c" implementovať konfiguráciu GPIO periférii s využitím makier z "assignment.h"
- 6. Odovzdáva sa odkaz k vašemu repozitáru.
-  <p align="center">
-    <img src="https://github.com/VRS-Predmet/vrs_cvicenie_2/blob/master/documents/circuit.png" width="1000" title="LED, button and Stm32 - circuit.">
+ 1. Stiahnúť/naklonovať vetvu "zadanie_cv1", ktorá predstavuje šablónu projektu, do ktorej je nutné vypracovať nasledujúce úlohy.
+ 2. V súbore "Inc/assignment.h" doplniť definície makier, ktoré sa budú použivať pri nastavovaní GPIO periférii a v samotnej aplikácii.
+ 3. V subore "Src/main.c" implementovať konfiguráciu GPIO periférii s využitím makier z "assignment.h"
+ 
+ <p align="center">
+    <img src="https://github.com/VRS-Predmet/vrs_cvicenie_1/blob/master/documents/circuit.png" width="1000" title="LED, button and Stm32 - circuit.">
 </p>
