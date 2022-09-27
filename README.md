@@ -88,6 +88,33 @@ Pre nastavenie konkrétnych bitov v registry sa využije "maska". Kedže sa ide 
 & 0b00011000    <- maska   
 = 0b00001000    <- prečítaná hodnota z registra </pre>
 
+# Práca s git
+Git je nástroj, ktorý uľahčuje prácu s projektami. Umožňuje verziovanie projektu, kontrolu zmien, návrat na predchádzajúce verzie a iné. Ukážkové príklady práce s gitom ukazujú iba prácu v termináli. Existujú rôzne grafické rozhrania, napríklad SourceTree.  
+Link na stiahnutie: https://git-scm.com/  
+Tutoriál na prácu s git: https://www.w3schools.com/git/default.asp?remote=github
+
+Naklonovanie projektu. Stiahne sa projekt aj s git verziovaním do priečinka.
+```
+git clone https://github.com/VRS-Predmet/vrs_cvicenie_1.git
+```
+
+Skontrolovanie zmien a stavu git repozitára.
+```
+git status
+```
+
+Uloženie zmien do projektu.
+```
+git add --all
+git commit -m "This is a git commit"
+```
+
+Prepnutie sa na inú vetvu projektu.
+```
+git checkout zadanie_cv1
+```
+
+
 # Zadanie 1 
 - Upravte ukážkový program tak, aby bol vstup (tlačidlo) načítavaný cez pin GPIOA-3 a výstup (LED) vyvedený na pin GPIOA-4.
 - Ukážkový program sa nachádza vo vetve (branch) "master". Šablóna, podľa ktorej sa vypracuje zadanie, sa nachádza vo vetve "zadanie_cv1".
