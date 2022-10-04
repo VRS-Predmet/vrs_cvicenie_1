@@ -52,19 +52,19 @@ int main(void)
 
   /* GPIOA pin 3 and 4 setup */
 
-  /* GPIOA pin 3 LED*/
-  GPIOA_MODER_REG &= ~(uint32_t)(0x3 << 6);
-  GPIOA_MODER_REG |= (uint32_t)(1 << 6);
-
-  /* GPIOA pin 4 BUTTON */
+  /* GPIOA pin 4 LED*/
   GPIOA_MODER_REG &= ~(uint32_t)(0x3 << 8);
+  GPIOA_MODER_REG |= (uint32_t)(1 << 8);
+
+  /* GPIOA pin 3 BUTTON */
+  GPIOA_MODER_REG &= ~(uint32_t)(0x3 << 6);
 
   /*GPIO OTYPER register*/
-  GPIOA_OTYPER_REG &= ~(uint32_t)(1 << 4);
+  GPIOA_OTYPER_REG &= ~(uint32_t)(1 << 3);
 
   /*GPIO OSPEEDR register*/
-  //Set Low speed for GPIOB pin 3
-  GPIOA_OSPEEDER_REG &= ~(0x3 << 6);
+  //Set Low speed for GPIOB pin 4
+  GPIOA_OSPEEDER_REG &= ~(0x3 << 8);
 
   /*GPIO PUPDR register, reset*/
   //Set pull up for GPIOB pin 3 (input)
@@ -77,7 +77,7 @@ int main(void)
 
   while (1)
   {
-	  if(!(BUTTON_GET_STATE & (1 << 3)))
+	  if(BUTTON_GET_STATE)
 	  {
 		  // 0.25s delay
 		  LL_mDelay(250);
