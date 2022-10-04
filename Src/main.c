@@ -47,17 +47,37 @@ int main(void)
 
   /* Enable clock for GPIO port A*/
 
-	//type your code for GPIOA clock enable here:
+  RCC_AHBENR_REG |= (uint32_t)(1 << 17); //type your code for GPIOA clock enable here:
 
 
   /* GPIOA pin 3 and 4 setup */
 
-	//type your code for GPIOA pins setup here:
+  /* GPIOA pin 3 LED*/
+  GPIOA_MODER_REG &= ~(uint32_t)(0x3 << 6);
+  GPIOA_MODER_REG |= (uint32_t)(1 << 6);
+
+  /* GPIOA pin 4 BUTTON */
+  GPIOA_MODER_REG &= ~(uint32_t)(0x3 << 8);
+
+  /*GPIO OTYPER register*/
+  GPIOA_OTYPER_REG &= ~(uint32_t)(1 << 4);
+
+  /*GPIO OSPEEDR register*/
+  //Set Low speed for GPIOB pin 3
+  GPIOA_OSPEEDER_REG &= ~(0x3 << 6);
+
+  /*GPIO PUPDR register, reset*/
+  //Set pull up for GPIOB pin 3 (input)
+  GPIOA_PUPDR_REG |= (1 << 6);
+  //Set no pull for GPIOB pin 4
+  GPIOA_PUPDR_REG &= ~(0x3 << 8);
+
+
 
 
   while (1)
   {
-	  if(BUTTON_GET_STATE)
+	  if(!(BUTTON_GET_STATE & (1 << 3)))
 	  {
 		  // 0.25s delay
 		  LL_mDelay(250);
