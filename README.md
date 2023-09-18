@@ -1,6 +1,5 @@
-# Vnorené riadiace systémy 2022/23
-
-### Harmonogram cvićení
+# Vnorené riadiace systémy 2023/24
+### Harmonogram cvičení
 1. Úvod do VRS
 2. Grafické rozhranie CubeMX a LL-knižnica
 3. Prerušenia
@@ -15,9 +14,18 @@
 - (10b) Úlohy na cvičeniach 1-5
 - (10b) Zadanie na cvičeniach 6-8
 - (35b) Semestrálne zadanie 9-12
-- (45b) Skúška
+- (35b) Skúška
+- (10b) TBD
 
 Zadania odovzdajte **bez binariek** vo formáte zip/rar/tar do AIS do miesta odovzdania a potom zadania budú prezentované cvičiacemu na konci daných cvičení.
+
+### Súťaž
+- možnosť získať body do súťaže z rôznych úloh na cvičeniach
+- podľa najväčsieho počtu získaných bodov sa určia 3 víťazi
+
+<p align="center">
+    <img src="documents/Sutaz_2023-2024.png" width="600" title="">
+</p>
 
 # Náplň cvičenia
 - overenie nainštalovaného STM32CubeIDE
@@ -115,7 +123,7 @@ git checkout zadanie_cv1
 ```
 
 
-# Zadanie 1 
+# Zadanie 1 (2b)
 - Upravte ukážkový program tak, aby bol vstup (tlačidlo) načítavaný cez pin GPIOA-3 a výstup (LED) vyvedený na pin GPIOA-4.
 - Ukážkový program sa nachádza vo vetve (branch) "master". Šablóna, podľa ktorej sa vypracuje zadanie, sa nachádza vo vetve "zadanie_cv1".
 - Toto zadanie je pre-rekvizita k zadaniu 2.
