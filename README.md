@@ -1,6 +1,5 @@
-# Vnorené riadiace systémy 2022/23
-
-### Harmonogram cvićení
+# Vnorené riadiace systémy 2023/24
+### Harmonogram cvičení
 1. Úvod do VRS
 2. Grafické rozhranie CubeMX a LL-knižnica
 3. Prerušenia
@@ -15,9 +14,18 @@
 - (10b) Úlohy na cvičeniach 1-5
 - (10b) Zadanie na cvičeniach 6-8
 - (35b) Semestrálne zadanie 9-12
-- (45b) Skúška
+- (35b) Skúška
+- (10b) TBD
 
 Zadania odovzdajte **bez binariek** vo formáte zip/rar/tar do AIS do miesta odovzdania a potom zadania budú prezentované cvičiacemu na konci daných cvičení.
+
+### Súťaž
+- možnosť získať body do súťaže z rôznych úloh na cvičeniach
+- podľa najväčsieho počtu získaných bodov sa určia 3 víťazi
+
+<p align="center">
+    <img src="documents/Sutaz_2023-2024.png" width="600" title="">
+</p>
 
 # Náplň cvičenia
 - overenie nainštalovaného STM32CubeIDE
@@ -88,7 +96,34 @@ Pre nastavenie konkrétnych bitov v registry sa využije "maska". Kedže sa ide 
 & 0b00011000    <- maska   
 = 0b00001000    <- prečítaná hodnota z registra </pre>
 
-# Zadanie 1 
+# Práca s git
+Git je nástroj, ktorý uľahčuje prácu s projektami. Umožňuje verziovanie projektu, kontrolu zmien, návrat na predchádzajúce verzie a iné. Ukážkové príklady práce s gitom ukazujú iba prácu v termináli. Existujú rôzne grafické rozhrania, napríklad SourceTree.  
+Link na stiahnutie: https://git-scm.com/  
+Tutoriál na prácu s git: https://www.w3schools.com/git/default.asp?remote=github
+
+Naklonovanie projektu. Stiahne sa projekt aj s git verziovaním do priečinka.
+```
+git clone https://github.com/VRS-Predmet/vrs_cvicenie_1.git
+```
+
+Skontrolovanie zmien a stavu git repozitára.
+```
+git status
+```
+
+Uloženie zmien do projektu.
+```
+git add --all
+git commit -m "This is a git commit"
+```
+
+Prepnutie sa na inú vetvu projektu.
+```
+git checkout zadanie_cv1
+```
+
+
+# Zadanie 1 (2b)
 - Upravte ukážkový program tak, aby bol vstup (tlačidlo) načítavaný cez pin GPIOA-3 a výstup (LED) vyvedený na pin GPIOA-4.
 - Ukážkový program sa nachádza vo vetve (branch) "master". Šablóna, podľa ktorej sa vypracuje zadanie, sa nachádza vo vetve "zadanie_cv1".
 - Toto zadanie je pre-rekvizita k zadaniu 2.
