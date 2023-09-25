@@ -123,7 +123,7 @@ git checkout zadanie_cv1
 ```
 
 
-# Zadanie 1 (2b)
+# Zadanie 1
 - Upravte ukážkový program tak, aby bol vstup (tlačidlo) načítavaný cez pin GPIOA-3 a výstup (LED) vyvedený na pin GPIOA-4.
 - Ukážkový program sa nachádza vo vetve (branch) "master". Šablóna, podľa ktorej sa vypracuje zadanie, sa nachádza vo vetve "zadanie_cv1".
 - Toto zadanie je pre-rekvizita k zadaniu 2.
