@@ -1,4 +1,4 @@
-# Vnorené riadiace systémy 2024/25
+# Vnorené riadiace systémy 2025/26
 ### Harmonogram cvičení
 1. až 2. Úvod do VRS a práca s GPIO
 3. Grafické rozhranie CubeMX a LL-knižnica
