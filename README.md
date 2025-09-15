@@ -1,31 +1,117 @@
 # Vnorené riadiace systémy 2024/25
 ### Harmonogram cvičení
-1. Úvod do VRS
-2. Grafické rozhranie CubeMX a LL-knižnica
-3. Prerušenia
-4. Komunikácia USART
-5. Úvod do git
-6. I2C senzor
-7. Časovače
-8. ADC prevodník
+1. až 2. Úvod do VRS a práca s GPIO
+3. Grafické rozhranie CubeMX a LL-knižnica
+4. Prerušenia
+5. Komunikácia USART
+6. Úvod do git?
+7. I2C senzor
+8. Časovače
+9. ADC prevodník
 9. až 12. Semestrálne zadanie
 
 ### Bodovanie
-- (10b) Úlohy na cvičeniach 1-5
-- (10b) Zadanie na cvičeniach 6-8
+- (10b) Úlohy na cvičeniach 1-6
+- (10b) Zadanie na cvičeniach 7-8
 - (35b) Semestrálne zadanie 9-12
 - (45b) Skúška
 
 Zadania odovzdajte **bez binariek** vo formáte zip/rar/tar do AIS do miesta odovzdania a potom zadania budú prezentované cvičiacemu na konci daných cvičení.
 
 # Náplň cvičenia
+### Časť 1
 - overenie nainštalovaného STM32CubeIDE
+- oboznámenie sa s programovacím prostredím STM32CubeIDE
+- vyskúšať si programovanie dostupného MCU
+- krokovanie a analýza programu, ktorý vykonáva MCU
+### Časť 2
 - zoznámenie sa s registrami mikrokontrolera stm32-F3xx
 - priami prístup k registrom mikrokontrolera
 - zoznámenie sa s perifériou GPIO – ako funguje, vlastnosti
 - konfigurácia GPIO portu a jednotlivých pinov
 - vypracovanie zadania 1
 
+# Časť 1 - Úvod do programovania VRS
+### Vytvorenie si projektu v STM32CubeIDE
+Spoločne si nastavíme nový projekt v programovacom prostredí STM32CubeIDE tak, aby sme mohli vytvoriť, nahrať a spustiť program na MCU (postup podľa inštrukcii cvičiaceho).
+
+### Nahranie a analýza nesledujúcich ukážok kódu
+Cieľom nasledujúcich prikladov je vyskúšať si, ako sa program správa na MCU a uvedomiť si, že je rozdiel ak program vykonáva stolový počítač a MCU (rozdielna architektúra, množstvo výpočtových zdrojov ...)
+
+```sh
+	 //typedef struct __attribute__((__packed__))
+	 typedef struct
+	 {
+		 uint16_t var16;
+		 uint32_t var32;
+		 uint8_t var8;
+	 }MixedStruct;
+
+	 uint8_t uint8_variable = 6;
+	 uint16_t uint16_variable = 6;
+	 uint32_t uint32_variable;
+	 int32_t int32_variable = -3;
+	 uint64_t uint64_variable = 0xFF000000000;
+
+	/* Priklad 1
+	 *
+	 * Zalezi na datovom type pri praci s premennymi?
+	 *
+	 */
+
+     // Zakladne aritmeticke operacie
+  	 uint32_variable = uint16_variable + uint16_variable;
+  	 uint32_variable = uint16_variable + uint8_variable;
+  	 uint16_variable = int32_variable + uint8_variable;
+  	 int32_variable = uint64_variable * uint16_variable;
+     uint64_variable = uint64_variable - int32_variable;
+     // Pretecenie
+     uint32_variable = 255;
+  	 uint8_variable =  uint32_variable + uint16_variable;
+
+	/* Priklad 2
+	 *
+	 * Aka bude hodnota premennej "uint8_variable" po vyhodnoteni podmienky?
+	 *
+	 */
+
+  	 uint32_variable = 9;
+
+  	 if(uint32_variable > -1)
+  	 {
+  		 uint8_variable = 0;
+  	 }
+  	 else
+  	 {
+  		 uint8_variable = 1;
+  	 }
+
+	/* Priklad 3 (Float vs. Double)
+	 *
+	 * Ma zmysel pouzit "float", ked mame k dispozicii "double"?
+     *
+	 */
+
+  	 float float_variable = 1.0;
+  	 double double_variable = 2.0;
+
+  	 float_variable = uint32_variable + float_variable;
+  	 double_variable = uint32_variable + double_variable;
+
+	/* Priklad 4
+	 *
+	 * Zalezi na poradi a valkosti prvkov struktury?
+	 *
+	 */
+
+  	 uint32_t size_of_struct = 0;
+  	 MixedStruct structure = {0};
+
+  	 size_of_struct = sizeof(structure);
+  	 structure.var32 += uint32_variable - 1;
+```
+
+# Časť 2 - Práca s GPIO
 # Ukážkový príklad
 1. Stiahnúť a nainštalovať [STM32CubeIDE](https://www.st.com/en/development-tools/stm32cubeide.html)
 2. Stiahnúť a nainštalovať [git](https://git-scm.com/downloads)
